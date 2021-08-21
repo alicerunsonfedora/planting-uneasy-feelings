@@ -1,51 +1,31 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://ui/dialogue.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/main/kotlin/net/marquiskurt/GodotWildThirtySix/Tutorial.kt" type="Script" id=2]
-[ext_resource path="res://assets/tom.png" type="Texture" id=3]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/main/kotlin/net/marquiskurt/GodotWildThirtySix/Universe.kt" type="Script" id=2]
+[ext_resource path="res://objects/entity.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/tilset.tres" type="TileSet" id=5]
-[ext_resource path="res://assets/player.png" type="Texture" id=6]
+[ext_resource path="res://assets/ambience.ogg" type="AudioStream" id=6]
+[ext_resource path="res://ui/levelPrompt.tscn" type="PackedScene" id=7]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 48, 96 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 6 )
-region = Rect2( 144, 0, 48, 96 )
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
-} ]
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 48, 96 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 48, 96 )
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
-} ]
-
-[node name="Tutorial" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+required_infection_rate = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
-visible = false
-popup_exclusive = true
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
+verified_timer_path = NodePath("../../Verifier")
+
+[node name="Destiny" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Verifier" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
@@ -66,22 +46,13 @@ cell_size = Vector2( 48, 48 )
 format = 1
 tile_data = PoolIntArray( 131076, 30, 0, 131078, 37, 0, 131088, 31, 0, 196622, 35, 0, 262151, 32, 0, 262152, 22, 0, 262156, 44, 0, 262157, 43, 0, 327686, 38, 0, 327693, 29, 0, 327694, 46, 0, 393225, 48, 0, 393227, 48, 0 )
 
-[node name="Claris" type="AnimatedSprite" parent="."]
-position = Vector2( 463.455, 293.621 )
-frames = SubResource( 3 )
-frame = 1
-playing = true
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 503.553, 387.022 )
 
-[node name="Tom" type="AnimatedSprite" parent="."]
-position = Vector2( 510.43, 174.859 )
-frames = SubResource( 6 )
-frame = 1
-playing = true
+[node name="Tom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510.315, 186.148 )
 
-[node name="Tween" type="Tween" parent="."]
-playback_speed = 1.5
-playback/speed = 1.5
-
-[node name="Delay" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+bus = "Ambience"
