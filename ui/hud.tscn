@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/main/kotlin/net/marquiskurt/GodotWildThirtySix/ui/InterfaceHUD.kt" type="Script" id=1]
+[ext_resource path="res://assets/Salmon Serif 9 Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Salmon Mono 9 Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 3 )
+
+[node name="HUD" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.092
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -1.0
+margin_bottom = 9.8
+color = Color( 0, 0, 0, 0.380392 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfectionProgressContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 992.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="Rate" type="Label" parent="VBoxContainer/InfectionProgressContainer"]
+margin_right = 492.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Infection Goal: 0% "
+
+[node name="Progress" type="ProgressBar" parent="VBoxContainer/InfectionProgressContainer"]
+margin_left = 500.0
+margin_right = 992.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+max_value = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 48.0
+margin_right = 992.0
+margin_bottom = 520.0
+size_flags_vertical = 3
+
+[node name="TimeRemaining" type="Label" parent="VBoxContainer"]
+margin_top = 528.0
+margin_right = 992.0
+margin_bottom = 568.0
+custom_fonts/font = SubResource( 1 )
+text = "0 seconds remaining!"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

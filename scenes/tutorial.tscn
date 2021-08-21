@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ui/dialogue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/main/kotlin/net/marquiskurt/GodotWildThirtySix/Tutorial.kt" type="Script" id=2]
+[ext_resource path="res://assets/tom.png" type="Texture" id=3]
+[ext_resource path="res://resources/tilset.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/player.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 48, 96 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 144, 0, 48, 96 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 96 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 48, 96 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
+visible = false
+popup_exclusive = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 131074, 0, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 2, 0, 262146, 3, 0, 262147, 39, 0, 262148, 40, 0, 262149, 40, 0, 262150, 40, 0, 262151, 40, 0, 262152, 40, 0, 262153, 40, 0, 262154, 40, 0, 262155, 40, 0, 262156, 40, 0, 262157, 40, 0, 262158, 40, 0, 262159, 40, 0, 262160, 40, 0, 262161, 40, 0, 262162, 4, 0, 327682, 3, 0, 327683, 41, 0, 327684, 42, 0, 327685, 42, 0, 327686, 42, 0, 327687, 42, 0, 327688, 42, 0, 327689, 42, 0, 327690, 42, 0, 327691, 42, 0, 327692, 42, 0, 327693, 42, 0, 327694, 42, 0, 327695, 42, 0, 327696, 42, 0, 327697, 42, 0, 327698, 4, 0, 393218, 3, 0, 393219, 41, 0, 393220, 42, 0, 393221, 42, 0, 393222, 42, 0, 393223, 42, 0, 393224, 42, 0, 393225, 42, 0, 393226, 42, 0, 393227, 42, 0, 393228, 42, 0, 393229, 42, 0, 393230, 42, 0, 393231, 42, 0, 393232, 42, 0, 393233, 42, 0, 393234, 4, 0, 458754, 3, 0, 458755, 41, 0, 458756, 42, 0, 458757, 42, 0, 458758, 42, 0, 458759, 42, 0, 458760, 42, 0, 458761, 42, 0, 458762, 42, 0, 458763, 42, 0, 458764, 42, 0, 458765, 42, 0, 458766, 42, 0, 458767, 42, 0, 458768, 42, 0, 458769, 42, 0, 458770, 4, 0, 524290, 3, 0, 524291, 41, 0, 524292, 42, 0, 524293, 42, 0, 524294, 42, 0, 524295, 42, 0, 524296, 42, 0, 524297, 42, 0, 524298, 42, 0, 524299, 42, 0, 524300, 42, 0, 524301, 42, 0, 524302, 42, 0, 524303, 42, 0, 524304, 42, 0, 524305, 42, 0, 524306, 4, 0, 589826, 3, 0, 589827, 41, 0, 589828, 42, 0, 589829, 42, 0, 589830, 42, 0, 589831, 42, 0, 589832, 42, 0, 589833, 42, 0, 589834, 42, 0, 589835, 42, 0, 589836, 42, 0, 589837, 42, 0, 589838, 42, 0, 589839, 42, 0, 589840, 42, 0, 589841, 42, 0, 589842, 4, 0, 655362, 6, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 5, 0 )
+
+[node name="TileMap" type="TileMap" parent="TileMap"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 196618, 21, 0, 262151, 19, 0, 262157, 20, 0, 327688, 16, 0, 327689, 16, 0, 327690, 16, 0, 327691, 16, 0, 327692, 16, 0 )
+
+[node name="TileMap2" type="TileMap" parent="TileMap"]
+z_index = 1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 131076, 30, 0, 131078, 37, 0, 131088, 31, 0, 196622, 35, 0, 262151, 32, 0, 262152, 22, 0, 262156, 44, 0, 262157, 43, 0, 327686, 38, 0, 327693, 29, 0, 327694, 46, 0, 393225, 48, 0, 393227, 48, 0 )
+
+[node name="Claris" type="AnimatedSprite" parent="."]
+position = Vector2( 463.455, 293.621 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="Tom" type="AnimatedSprite" parent="."]
+position = Vector2( 510.43, 174.859 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="Tween" type="Tween" parent="."]
+playback_speed = 1.5
+playback/speed = 1.5
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
