@@ -18,6 +18,7 @@ the Kotlin/JVM module for Godot created by utopia-rise.
 - Godot 3.3.2 with the Kotlin/JVM plugin (see: https://godot-kotl.in)
 - IntelliJ 2021.1.x (either CE or Ultimate works)
 - Godot Kotlin/JVM plugin for IntelliJ
+- Salmon font family*
 
 First, follow the instructions outlined in the [Setup process for Godot-Kotlin][gdksetup]
 to set up the engine.
@@ -43,3 +44,7 @@ jlink --add-modules java.base,java.logging --output jre
 ```
 
 Then follow the standard procedure for exporting the project for Windows, macOS, and Linux.
+
+> *Note: To make builds successful, the fonts provided in this repository correspond to free equivalents from the GNU
+> FreeFont family. The authors recommend that you purchase the Salmon font family and replace these font files to
+> replicate the exported experience.
