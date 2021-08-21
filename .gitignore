@@ -20,3 +20,9 @@ jre
 **/export_presets.cfg
 
 .DS_Store
+
+# Salmon fonts
+# (Current fonts are FreeMono and FreeSerif, replaced for building
+# convenience).
+assets/Salmon*.ttf
+assets/s*.ttf
