@@ -48,3 +48,12 @@ Then follow the standard procedure for exporting the project for Windows, macOS,
 > *Note: To make builds successful, the fonts provided in this repository correspond to free equivalents from the GNU
 > FreeFont family. The authors recommend that you purchase the Salmon font family and replace these font files to
 > replicate the exported experience.
+
+## Licensing
+
+The source code for this project is licensed under the Mozilla Public License v2.0.
+
+Likewise, the following assets are under specific licenses:
+
+- Modern Office Tileset - Proprietary (contact LimeZu on Itch for permissions)
+- Salmon 9 - Proprietary (fonts here replaced with free counterparts)
