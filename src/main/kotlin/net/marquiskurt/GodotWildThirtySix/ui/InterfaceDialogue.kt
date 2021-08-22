@@ -28,6 +28,7 @@ class InterfaceDialogue : PopupDialog() {
 	var dialoguePath: String = "res://resources/dialogue_tutorial.json"
 
 	/** A signal emitted when the dialogue finishes. */
+	@RegisterSignal
 	val signalDialogueFinished by signal()
 
 	private lateinit var dialogue: VariantArray<Dictionary<String, String>>
