@@ -26,3 +26,6 @@ jre
 # convenience).
 assets/Salmon**.ttf
 assets/s*.ttf
+
+# dist folder
+dist/
